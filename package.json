@@ -23,6 +23,8 @@
     "dependencies": {
         "@tailwindcss/vite": "^4.1.13",
         "bits-ui": "^2.9.6",
-        "tailwindcss": "^4.1.13"
+        "phosphor-svelte": "^3.0.1",
+        "tailwindcss": "^4.1.13",
+        "tailwindcss-animate": "^1.0.7"
     }
 }
