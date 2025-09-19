@@ -21,6 +21,7 @@
         "vite": "^7.0.4"
     },
     "dependencies": {
+        "@melloware/coloris": "^0.25.0",
         "@tailwindcss/vite": "^4.1.13",
         "bits-ui": "^2.9.6",
         "phosphor-svelte": "^3.0.1",
