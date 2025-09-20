@@ -16,12 +16,12 @@
 </script>
 
 <div
-    class="relative rounded-card border-border-input text-muted-foreground flex w-full py-6 select-none items-center justify-center border-2 border-dashed bg-transparent font-semibold"
+    class="rounded-card border-border-input text-muted-foreground relative flex w-full items-center justify-center border-2 border-dashed bg-transparent py-6 font-semibold select-none"
 >
     <div class="flex flex-col items-center justify-center gap-4 text-center">
         <UploadSimple class="size-8" />
         Upload a file
     </div>
 
-    <input type="file" bind:this={input} class="absolute inset-0 opacity-0 cursor-pointer" onchange={uploadFile} />
+    <input type="file" bind:this={input} class="absolute inset-0 cursor-pointer opacity-0" onchange={uploadFile} />
 </div>

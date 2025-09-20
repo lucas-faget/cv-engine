@@ -282,7 +282,9 @@
 
     body {
         @apply bg-background text-foreground;
-        font-feature-settings: "rlig" 1, "calt" 1;
+        font-feature-settings:
+            "rlig" 1,
+            "calt" 1;
     }
 
     ::selection {
@@ -295,11 +297,11 @@
     *:not(body):not(.focus-override) {
         outline: none !important;
         &:focus-visible {
-            @apply focus-visible:ring-foreground focus-visible:ring-offset-background focus-visible:outline-hidden focus-visible:ring-2 focus-visible:ring-offset-1;
+            @apply focus-visible:ring-foreground focus-visible:ring-offset-background focus-visible:ring-2 focus-visible:ring-offset-1 focus-visible:outline-hidden;
         }
     }
 
     .link {
-        @apply hover:text-foreground/80 focus-visible:ring-foreground focus-visible:ring-offset-background rounded-xs focus-visible:outline-hidden inline-flex items-center gap-1 font-medium underline underline-offset-4 focus-visible:ring-2 focus-visible:ring-offset-2;
+        @apply hover:text-foreground/80 focus-visible:ring-foreground focus-visible:ring-offset-background inline-flex items-center gap-1 rounded-xs font-medium underline underline-offset-4 focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-hidden;
     }
 }
