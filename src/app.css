@@ -17,7 +17,7 @@
 :root {
     /* Colors */
     --background: hsl(0 0% 100%);
-    --background-alt: hsl(0 0% 100%);
+    --background-alt: hsl(0 0% 99%);
     --foreground: hsl(0 0% 9%);
     --foreground-alt: hsl(0 0% 32%);
     --muted: hsl(240 5% 96%);
@@ -52,7 +52,7 @@
 .dark {
     /* Colors */
     --background: hsl(0 0% 5%);
-    --background-alt: hsl(0 0% 8%);
+    --background-alt: hsl(0 0% 10%);
     --foreground: hsl(0 0% 95%);
     --foreground-alt: hsl(0 0% 70%);
     --muted: hsl(240 4% 16%);
