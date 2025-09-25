@@ -74,7 +74,7 @@
 {/snippet}
 
 <div
-    class={`bg-background-alt fixed inset-0 flex h-screen max-w-screen flex-col border-r duration-300 ${open ? "w-100" : "w-14"}`}
+    class={`bg-background-alt fixed inset-0 flex h-screen max-w-screen flex-col border-r-2 duration-300 ${open ? "w-100" : "w-14"}`}
 >
     <div class="absolute top-1/2 right-0 translate-x-1/2 -translate-y-1/2">
         <button
@@ -88,9 +88,9 @@
             {/if}
         </button>
     </div>
-    <div class="flex-1 border-b">
+    <div class="mb-14 flex-1 overflow-y-auto">
         {#if open}
-            <div class="text-foreground-alt flex h-10 items-center px-2.5 text-sm">Layers</div>
+            <div class="text-foreground-alt flex h-10 items-center border-b px-2.5 text-sm">Layers</div>
             <Accordion.Root class="w-full" type="multiple" bind:value={accordionValues}>
                 {#each items as item (item.value)}
                     <Accordion.Item value={item.value} class="border-dark-10 group border-b px-2.5">
@@ -135,7 +135,7 @@
         {/if}
     </div>
     {#if open}
-        <div class="flex h-14 items-center justify-between px-2.5">
+        <div class="absolute bottom-0 left-0 flex h-14 w-full items-center justify-between border-t px-2.5">
             <DarkmodeToggle />
             <Button.Root
                 class="rounded-input bg-dark text-background shadow-mini hover:bg-dark/95 inline-flex h-10 items-center justify-center px-3.5 text-sm font-semibold active:scale-[0.98] active:transition-all"
@@ -144,7 +144,7 @@
             </Button.Root>
         </div>
     {:else}
-        <div class="flex h-14 items-center justify-center">
+        <div class="absolute bottom-0 left-0 flex h-14 w-full items-center justify-center">
             <DarkmodeToggle />
         </div>
     {/if}

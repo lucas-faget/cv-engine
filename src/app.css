@@ -277,7 +277,6 @@
     html {
         -webkit-text-size-adjust: 100%;
         font-variation-settings: normal;
-        scrollbar-color: var(--bg-muted);
     }
 
     body {
@@ -304,4 +303,9 @@
     .link {
         @apply hover:text-foreground/80 focus-visible:ring-foreground focus-visible:ring-offset-background inline-flex items-center gap-1 rounded-xs font-medium underline underline-offset-4 focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-hidden;
     }
+}
+
+* {
+    scrollbar-width: thin;
+    scrollbar-color: var(--muted-foreground) var(--background-alt);
 }
