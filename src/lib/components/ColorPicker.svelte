@@ -2,7 +2,7 @@
     import { onMount } from "svelte";
     import Input from "$lib/components/Input.svelte";
 
-    let { color = $bindable("") } = $props();
+    let { id = "", color = $bindable("") } = $props();
 
     let input: HTMLInputElement | null = $state(null);
 
@@ -28,7 +28,7 @@
 </script>
 
 <div class="relative w-full">
-    <Input bind:input type="text" placeholder="Pick a color" bind:value={color} />
+    <Input {id} bind:input placeholder="Pick a color" bind:value={color} />
     <button
         type="button"
         aria-label="Pick a color"

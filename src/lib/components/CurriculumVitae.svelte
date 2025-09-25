@@ -1,6 +1,7 @@
 <script lang="ts">
     import { PaneGroup, Pane, PaneResizer } from "paneforge";
     import { SplitHorizontal, SplitVertical } from "phosphor-svelte";
+    import { cv } from "$lib/stores/cv.svelte";
 </script>
 
 {#snippet risizer(direction = "horizontal")}
@@ -26,14 +27,35 @@
 
 <div class="a4 bg-background flex flex-col border shadow-xl">
     <PaneGroup direction="vertical">
-        <Pane defaultSize={20} collapsedSize={0} collapsible={true} minSize={5} maxSize={50} class="border-b"></Pane>
+        <Pane
+            defaultSize={20}
+            collapsedSize={0}
+            collapsible={true}
+            minSize={5}
+            maxSize={50}
+            class="border-b"
+            style="
+                background-image: url('{cv.header.bgImage}');
+                background-size: cover;
+                background-position: center;
+                background-repeat: no-repeat;
+                background-color: {cv.header.bgColor || 'transparent'};
+            "
+        ></Pane>
         {@render risizer("vertical")}
         <Pane class="border-t">
             <PaneGroup direction="horizontal">
-                <Pane defaultSize={30} collapsedSize={0} collapsible={true} minSize={10} maxSize={50} class="border-r"
+                <Pane
+                    defaultSize={30}
+                    collapsedSize={0}
+                    collapsible={true}
+                    minSize={10}
+                    maxSize={50}
+                    class="border-r"
+                    style="background-color: {cv.aside.bgColor || 'transparent'}"
                 ></Pane>
                 {@render risizer("horizontal")}
-                <Pane class="border-l"></Pane>
+                <Pane class="border-l" style="background-color: {cv.body.bgColor || 'transparent'}"></Pane>
             </PaneGroup>
         </Pane>
     </PaneGroup>

@@ -1,7 +1,10 @@
 <script lang="ts">
-    import { Accordion, Button } from "bits-ui";
+    import { Accordion, Label, Button } from "bits-ui";
     import { CaretDoubleLeft, CaretDoubleRight, CaretDown, Browser, SidebarSimple, Layout } from "phosphor-svelte";
     import DarkmodeToggle from "./DarkmodeToggle.svelte";
+    import Dropzone from "./Dropzone.svelte";
+    import ColorPicker from "./ColorPicker.svelte";
+    import { cv } from "$lib/stores/cv.svelte";
 
     let { open = $bindable() } = $props();
 
@@ -37,15 +40,37 @@
 </script>
 
 {#snippet header()}
-    <div>header</div>
+    <div class="flex flex-col gap-2.5">
+        <Label.Root for="header-image-input" class="text-foreground-alt text-sm font-medium">
+            Background image :
+        </Label.Root>
+        <Dropzone id="header-image-input" bind:src={cv.header.bgImage} />
+    </div>
+
+    <div class="flex flex-col gap-2.5">
+        <Label.Root for="header-color-input" class="text-foreground-alt text-sm font-medium">
+            Background color :
+        </Label.Root>
+        <ColorPicker id="header-color-input" bind:color={cv.header.bgColor} />
+    </div>
 {/snippet}
 
 {#snippet aside()}
-    <div>aside</div>
+    <div class="flex flex-col gap-2.5">
+        <Label.Root for="aside-color-input" class="text-foreground-alt text-sm font-medium">
+            Background color :
+        </Label.Root>
+        <ColorPicker id="aside-color-input" bind:color={cv.aside.bgColor} />
+    </div>
 {/snippet}
 
 {#snippet body()}
-    <div>body</div>
+    <div class="flex flex-col gap-2.5">
+        <Label.Root for="body-color-input" class="text-foreground-alt text-sm font-medium">
+            Background color :
+        </Label.Root>
+        <ColorPicker id="body-color-input" bind:color={cv.body.bgColor} />
+    </div>
 {/snippet}
 
 <div
