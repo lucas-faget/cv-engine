@@ -1,6 +1,4 @@
 <script lang="ts">
-    import UploadSimple from "phosphor-svelte/lib/UploadSimple";
-
     let { id = "", src = $bindable("") } = $props();
 
     let file: File | null = null;
@@ -22,7 +20,7 @@
         <div
             class="border-border-input bg-background-alt shadow-btn ring-dark ring-offset-background hover:bg-muted focus-visible:ring-dark focus-visible:ring-offset-background inline-flex size-10 shrink-0 items-center justify-center rounded-full border focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-hidden"
         >
-            <UploadSimple class="size-5" />
+            <iconify-icon icon="lucide:upload" class="text-lg"></iconify-icon>
         </div>
         <span class="text-foreground-alt">Drag & drop your files here, or click to browse</span>
         <span class="text-muted-foreground">JPG, PNG, SVG, WEBP</span>

@@ -1,6 +1,5 @@
 <script lang="ts">
     import { Accordion, Label, Button } from "bits-ui";
-    import { CaretDoubleLeft, CaretDoubleRight, CaretDown, Browser, SidebarSimple, Layout } from "phosphor-svelte";
     import DarkmodeToggle from "./DarkmodeToggle.svelte";
     import Dropzone from "./Dropzone.svelte";
     import ColorPicker from "./ColorPicker.svelte";
@@ -10,22 +9,22 @@
 
     let accordionValues = $state<string[]>([]);
 
-    const items = [
+    const panels = [
         {
             value: "header",
-            icon: Browser,
+            icon: "lucide:panel-top",
             title: "Header",
             content: header,
         },
         {
             value: "aside",
-            icon: SidebarSimple,
+            icon: "lucide:panel-left",
             title: "Aside",
             content: aside,
         },
         {
             value: "body",
-            icon: Layout,
+            icon: "lucide:panels-top-left",
             title: "Body",
             content: body,
         },
@@ -82,9 +81,9 @@
             class="border-border-input bg-background-alt shadow-btn ring-dark ring-offset-background hover:bg-muted focus-visible:ring-dark focus-visible:ring-offset-background inline-flex size-8 items-center justify-center rounded-full border focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-hidden"
         >
             {#if open}
-                <CaretDoubleLeft class="size-4" />
+                <iconify-icon icon="ph:caret-double-left" class="text-base"></iconify-icon>
             {:else}
-                <CaretDoubleRight class="size-4" />
+                <iconify-icon icon="ph:caret-double-right" class="text-base"></iconify-icon>
             {/if}
         </button>
     </div>
@@ -92,20 +91,23 @@
         {#if open}
             <div class="text-foreground-alt flex h-10 items-center border-b px-2.5 text-sm">Layers</div>
             <Accordion.Root class="w-full" type="multiple" bind:value={accordionValues}>
-                {#each items as item (item.value)}
+                {#each panels as item (item.value)}
                     <Accordion.Item value={item.value} class="border-dark-10 group border-b px-2.5">
                         <Accordion.Header>
                             <Accordion.Trigger
-                                class="flex w-full flex-1 items-center justify-between py-2 text-sm font-medium transition-all select-none [&[data-state=open]>span>svg]:rotate-180"
+                                class="flex w-full flex-1 items-center justify-between py-2 text-sm font-medium transition-all select-none [&[data-state=open]>span>iconify-icon]:rotate-180"
                             >
-                                <item.icon class="mr-2 size-6" />
+                                <iconify-icon icon={item.icon} class="mr-2 text-lg"></iconify-icon>
                                 <span class="w-full text-left">
                                     {item.title}
                                 </span>
                                 <span
                                     class="hover:bg-dark-10 inline-flex size-8 shrink-0 items-center justify-center rounded-lg bg-transparent"
                                 >
-                                    <CaretDown class="size-4 transition-transform duration-200" />
+                                    <iconify-icon
+                                        icon="lucide:chevron-down"
+                                        class="text-lg transition-transform duration-200"
+                                    ></iconify-icon>
                                 </span>
                             </Accordion.Trigger>
                         </Accordion.Header>
@@ -122,13 +124,14 @@
                 {/each}
             </Accordion.Root>
         {:else}
-            {#each items as item (item.value)}
+            {#each panels as panel (panel.value)}
                 <div class="group border-dark-10 flex aspect-square w-full items-center justify-center border-b">
                     <button
-                        onclick={() => openAccordionItem(item.value)}
+                        onclick={() => openAccordionItem(panel.value)}
                         class="group-hover:bg-dark-10 inline-flex size-8 shrink-0 items-center justify-center rounded-lg bg-transparent"
+                        aria-label="panel"
                     >
-                        <item.icon class="size-6 transition-transform duration-200" />
+                        <iconify-icon icon={panel.icon} class="text-xl"></iconify-icon>
                     </button>
                 </div>
             {/each}

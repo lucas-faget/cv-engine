@@ -1,6 +1,5 @@
 <script lang="ts">
     import { PaneGroup, Pane, PaneResizer } from "paneforge";
-    import { SplitHorizontal, SplitVertical } from "phosphor-svelte";
     import { cv } from "$lib/stores/cv.svelte";
 </script>
 
@@ -16,9 +15,9 @@
                 class="border-border-input bg-background-alt shadow-btn ring-dark ring-offset-background group-hover:bg-muted focus-visible:ring-dark focus-visible:ring-offset-background inline-flex size-8 items-center justify-center rounded-full border focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-hidden"
             >
                 {#if direction === "vertical"}
-                    <SplitVertical class="size-6" />
+                    <iconify-icon icon="ph:split-vertical" class="text-xl"></iconify-icon>
                 {:else}
-                    <SplitHorizontal class="size-6" />
+                    <iconify-icon icon="ph:split-horizontal" class="text-xl"></iconify-icon>
                 {/if}
             </div>
         </div>

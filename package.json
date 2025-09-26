@@ -30,7 +30,6 @@
         "bits-ui": "^2.9.6",
         "iconify-icon": "^3.0.1",
         "paneforge": "^1.0.2",
-        "phosphor-svelte": "^3.0.1",
         "tailwindcss": "^4.1.13",
         "tailwindcss-animate": "^1.0.7"
     }

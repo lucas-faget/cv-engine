@@ -1,6 +1,4 @@
 <script lang="ts">
-    import Moon from "phosphor-svelte/lib/Moon";
-    import Sun from "phosphor-svelte/lib/Sun";
     import { onMount } from "svelte";
 
     let isDark: boolean = false;
@@ -33,8 +31,8 @@
     class="border-border-input bg-background-alt shadow-btn ring-dark ring-offset-background hover:bg-muted focus-visible:ring-dark focus-visible:ring-offset-background inline-flex size-10 shrink-0 items-center justify-center rounded-full border focus-visible:ring-2 focus-visible:ring-offset-2 focus-visible:outline-hidden"
 >
     {#if isDark}
-        <Moon class="size-5" />
+        <iconify-icon icon="ph:moon" class="text-xl"></iconify-icon>
     {:else}
-        <Sun class="size-5" />
+        <iconify-icon icon="ph:sun" class="text-xl"></iconify-icon>
     {/if}
 </button>
