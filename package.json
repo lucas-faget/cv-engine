@@ -25,6 +25,7 @@
         "vite": "^7.0.4"
     },
     "dependencies": {
+        "@dnd-kit/dom": "^0.1.21",
         "@melloware/coloris": "^0.25.0",
         "@tailwindcss/vite": "^4.1.13",
         "bits-ui": "^2.9.6",
