@@ -2,7 +2,7 @@
     import Sidebar from "$lib/components/Sidebar.svelte";
     import CurriculumVitae from "$lib/components/CurriculumVitae.svelte";
 
-    let sidebarOpen = $state<boolean>(true);
+    let sidebarOpen: boolean = $state(true);
 </script>
 
 <Sidebar bind:open={sidebarOpen} />

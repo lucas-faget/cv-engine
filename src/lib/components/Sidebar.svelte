@@ -7,7 +7,7 @@
 
     let { open = $bindable() } = $props();
 
-    let accordionValues = $state<string[]>([]);
+    let accordionValues: string[] = $state([]);
 
     const panels = [
         {
