@@ -1,6 +1,10 @@
 <script lang="ts">
     import { PaneGroup, Pane, PaneResizer } from "paneforge";
     import { cv } from "$lib/stores/cv.svelte";
+    import Sortable from "./Sortable.svelte";
+    import SortableItem from "./SortableItem.svelte";
+    import ContactDetails from "./ContactDetails.svelte";
+    import Timeline from "./Timeline.svelte";
 </script>
 
 {#snippet risizer(direction = "horizontal")}
@@ -24,6 +28,36 @@
     </PaneResizer>
 {/snippet}
 
+{#snippet header()}
+    <div></div>
+{/snippet}
+
+{#snippet aside()}
+    <ContactDetails data={cv.aside.contactDetails} />
+{/snippet}
+
+{#snippet body()}
+    <Sortable>
+        <div class="flex flex-col gap-6 p-4">
+            <SortableItem>
+                <div class="mb-4 flex items-center gap-2.5 border-b text-xl uppercase">
+                    <iconify-icon icon="lucide:briefcase"></iconify-icon>
+                    <span>Work experience</span>
+                </div>
+                <Timeline items={cv.body.workExperience} />
+            </SortableItem>
+
+            <SortableItem>
+                <div class="mb-4 flex items-center gap-2.5 border-b text-xl uppercase">
+                    <iconify-icon icon="lucide:graduation-cap"></iconify-icon>
+                    <span>Education</span>
+                </div>
+                <Timeline items={cv.body.education} />
+            </SortableItem>
+        </div>
+    </Sortable>
+{/snippet}
+
 <div class="a4 bg-background flex flex-col border shadow-xl">
     <PaneGroup direction="vertical">
         <Pane
@@ -40,7 +74,9 @@
                 background-repeat: no-repeat;
                 background-color: {cv.header.bgColor || 'transparent'};
             "
-        ></Pane>
+        >
+            {@render header?.()}
+        </Pane>
         {@render risizer("vertical")}
         <Pane class="border-t">
             <PaneGroup direction="horizontal">
@@ -52,9 +88,13 @@
                     maxSize={50}
                     class="border-r"
                     style="background-color: {cv.aside.bgColor || 'transparent'}"
-                ></Pane>
+                >
+                    {@render aside?.()}
+                </Pane>
                 {@render risizer("horizontal")}
-                <Pane class="border-l" style="background-color: {cv.body.bgColor || 'transparent'}"></Pane>
+                <Pane class="border-l" style="background-color: {cv.body.bgColor || 'transparent'}">
+                    {@render body?.()}
+                </Pane>
             </PaneGroup>
         </Pane>
     </PaneGroup>
