@@ -138,7 +138,7 @@
         {/if}
     </div>
     {#if open}
-        <div class="absolute bottom-0 left-0 flex h-14 w-full items-center justify-between border-t px-2.5">
+        <div class="absolute bottom-0 left-0 flex h-14 w-full items-center justify-between border-t px-2">
             <DarkmodeToggle />
             <Button.Root
                 class="rounded-input bg-dark text-background shadow-mini hover:bg-dark/95 inline-flex h-10 items-center justify-center px-3.5 text-sm font-semibold active:scale-[0.98] active:transition-all"

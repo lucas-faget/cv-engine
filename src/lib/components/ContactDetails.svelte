@@ -5,14 +5,14 @@
 
     let { data }: { data: ContactDetails } = $props();
 
-    const items = [
+    let items = $derived([
         { id: 0, icon: "lucide:mail", value: data.email },
         { id: 1, icon: "lucide:phone", value: data.phone },
         { id: 2, icon: "lucide:map-pin", value: data.address },
         { id: 3, icon: "lucide:globe", value: data.website },
         { id: 4, icon: "lucide:linkedin", value: data.linkedIn },
         { id: 5, icon: "lucide:github", value: data.github },
-    ];
+    ]);
 </script>
 
 <Sortable>
